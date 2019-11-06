@@ -30,44 +30,20 @@ export const appearsPokemons = (data) => {
 
 }
 
-/*export const filterType = (data, array) => {
+export const filterType = (data, array) => {
+  //debugger
+  let pokePlease = 0;
   let pokemons = [];
   for (let index = 0; index < data.length; index++) {
     for (let index2 = 0; index2 < array.length; index2++) {
       if (data[index].type.length > 0) {
         let element = data[index].type;
         let resultFilter = element.filter((element => {if (element == array[index2]) {
-          pokemons.push(data[index]);
+          pokePlease =+ 1;
         }}));
-      }
-    }
-  }
-  console.log(pokemons);
-  return pokemons;
-}*/
-
-export const filterType = (data, array) => {
-  let firstFilter = [];
-  let pokemons = [];
-  for (let index = 0; index < data.length; index++) {
-    if (data[index].type.length > 0) {
-      let element = data[index].type;
-      for (let index2 = 0; index2 < array.length; index2++) {
-        if (firstFilter.length > 0) {
-          for (let index3 = 0; index3 < firstFilter.length; index3++) {
-            let element2 = firstFilter[index3].type;
-            let resultFilter2 = element2.filter((element2 => {
-              if (element2 == array[index3]) {
-                pokemons.push(data[index]);
-              }
-            }));
-          }
+        if (pokePlease == array.length) {
+          pokemons.push(data[index]);
         }
-        let resultFilter = element.filter((element => {
-          if (element == array[index2]) {
-            firstFilter.push(data[index]);
-          }
-        }));
       }
     }
   }

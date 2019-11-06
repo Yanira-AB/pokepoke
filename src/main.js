@@ -1,3 +1,129 @@
+const lala = [{
+    id: 1,
+    num: '001',
+    name: 'Bulbasaur',
+    img: 'http://www.serebii.net/pokemongo/pokemon/001.png',
+    type: [
+      'Grass',
+      'Poison',
+    ],
+    height: '0.71 m',
+    weight: '6.9 kg',
+    candy: 'Bulbasaur Candy',
+    candy_count: 25,
+    egg: '2 km',
+    spawn_chance: 0.69,
+    avg_spawns: 69,
+    spawn_time: '20:00',
+    multipliers: [1.58],
+    weaknesses: [
+      'Fire',
+      'Ice',
+      'Flying',
+      'Psychic',
+    ],
+    next_evolution: [{
+      num: '002',
+      name: 'Ivysaur',
+    }, {
+      num: '003',
+      name: 'Venusaur',
+    }],
+  },
+  {
+    id: 10,
+    num: '010',
+    name: 'Caterpie',
+    img: 'http://www.serebii.net/pokemongo/pokemon/010.png',
+    type: [
+      'Bug',
+    ],
+    height: '0.30 m',
+    weight: '2.9 kg',
+    candy: 'Caterpie Candy',
+    candy_count: 12,
+    egg: '2 km',
+    spawn_chance: 3.032,
+    avg_spawns: 303.2,
+    spawn_time: '16:35',
+    multipliers: [1.05],
+    weaknesses: [
+      'Fire',
+      'Flying',
+      'Rock',
+    ],
+    next_evolution: [{
+      num: '011',
+      name: 'Metapod',
+    }, {
+      num: '012',
+      name: 'Butterfree',
+    }],
+  },
+  {
+    id: 13,
+    num: '013',
+    name: 'Weedle',
+    img: 'http://www.serebii.net/pokemongo/pokemon/013.png',
+    type: [
+      'Bug',
+      'Poison',
+    ],
+    height: '0.30 m',
+    weight: '3.2 kg',
+    candy: 'Weedle Candy',
+    candy_count: 12,
+    egg: '2 km',
+    spawn_chance: 7.12,
+    avg_spawns: 712,
+    spawn_time: '02:21',
+    multipliers: [
+      1.01,
+      1.09,
+    ],
+    weaknesses: [
+      'Fire',
+      'Flying',
+      'Psychic',
+      'Rock',
+    ],
+    next_evolution: [{
+      num: '014',
+      name: 'Kakuna',
+    }, {
+      num: '015',
+      name: 'Beedrill',
+    }],
+  }, {
+    id: 23,
+    num: '023',
+    name: 'Ekans',
+    img: 'http://www.serebii.net/pokemongo/pokemon/023.png',
+    type: [
+      'Poison',
+    ],
+    height: '2.01 m',
+    weight: '6.9 kg',
+    candy: 'Ekans Candy',
+    candy_count: 50,
+    egg: '5 km',
+    spawn_chance: 2.27,
+    avg_spawns: 227,
+    spawn_time: '12:20',
+    multipliers: [
+      2.21,
+      2.27,
+    ],
+    weaknesses: [
+      'Ground',
+      'Psychic',
+    ],
+    next_evolution: [{
+      num: '024',
+      name: 'Arbok',
+    }],
+  }];
+
 import POKEMON from './data/pokemon/pokemon.js'
 import { readPokemon, ordenarAZ, ordenarZA, ordenarNumber, searchPokemonByName, findPokemonByCandy, appearsPokemons, filterType } from './data.js';
 
@@ -158,7 +284,7 @@ function searchTypeWeakness() {
         }
     }
 
-    filterType(POKEMON, type);
+    filterType(lala, type);
     //for (let index = 0; index < type.length; index++) {
      //   let listPaintOfPokemon = filterType(POKEMON, type[index]); 
         /*for (let index2 = 0; index2 < listPaintOfPokemon.length; index2++) {
