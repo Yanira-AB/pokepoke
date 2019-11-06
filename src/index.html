@@ -15,33 +15,33 @@
     <main id="page-0">
       <section class="section-1">
         <img class="img-section-1" src="img/web-1.jpg" alt="">
-        <a class="link-start" id="link-start-1" href="">POKEMONS</a>
+        <div class="link-start" id="link-start-1">POKEMONS</div>
       </section>
       <section class="section-2">
         <img class="img-section-2" src="img/web-2.png" alt="">
-        <a class="link-start" id="link-start-2" href="">POKEDEX</a>
+        <div class="link-start" id="link-start-2">POKEDEX</div>
       </section>
       <section class="section-3">
         <img class="img-section-3" src="img/web-3.jpg" alt="">
-        <a class="link-start" id="link-start-3" href="">ATRAPALOS</a>
+        <div class="link-start" id="link-start-3" href="">ATRAPALOS</div>
       </section>
       <section class="section-4">
         <img class="img-section-4" src="img/web-4.jpg" alt="">
-        <a class="link-start" id="link-start-4" href="">CANDYS</a>
+        <div class="link-start" id="link-start-4" href="">CANDYS</div>
       </section>
       <section class="logo"><img src="img/web-5.png" alt=""></section>
     </main>
 
     <main id="page-1">
       <header>
-        <section id="page1Logo">
+        <section class="menuLogo">
           <img src="img/web-5.png" alt="">
         </section>
-        <section id="page1Menu">
-          <a id="linkMenu1" href="">POKEMONS</a>
-          <a id="linkMenu2" href="">POKEDEX</a>
-          <a id="linkMenu3" href="">ATRAPALOS</a>
-          <a id="linkMenu4" href="">CANDYS</a>
+        <section class="menu">
+          <div class="linkMenu1">POKEMONS</div>
+          <div class="linkMenu2">POKEDEX</div>
+          <div class="linkMenu3">ATRAPALOS</div>
+          <div class="linkMenu4">CANDYS</div>
         </section>
       </header>
       <section id="sectionOrderFilter">
@@ -51,13 +51,12 @@
           <option value="2">Ordenar Z-A</option>
           <option value="3">Ordenar</option>
         </select>
-        <section id="fieldFiltrar">
+        <section id="fieldFind">
           <input type="search" id="textSearch" placeholder="Buscar pokemon...">
           <input type="button" id="buttonSearch" class="style_button" value="Buscar">
         </section>
       </section>
       <section class="sectionInitPokemon"></section>
-      <input type="button" id="button_next" class="style_button" value="Siguiente">
     </main>
 
     <main id="page-2">
@@ -66,16 +65,16 @@
       <section class="sectionFilterType">
         <ul>
           <li>Bicho
-              <input id="bichoT" type="checkbox" name="Bug" value="type">
-              <input id="bichoD" type="checkbox" name="Bug" value="weaknesses"><br>
+            <input id="bichoT" type="checkbox" name="Bug" value="type">
+            <input id="bichoD" type="checkbox" name="Bug" value="weaknesses"><br>
           </li>
           <li>Dragon
-              <input id="dragonT" type="checkbox" name="dragon" value="type">
-              <input id="dragonD" type="checkbox" name="dragon" value="weaknesses"><br>
+            <input id="dragonT" type="checkbox" name="Dragon" value="type">
+            <input id="dragonD" type="checkbox" name="Dragon" value="weaknesses"><br>
           </li>
           <li>Hada
-              <input type="checkbox" name="hadaT" value="Bike">
-              <input type="checkbox" name="hadaD" value="Car"><br>
+            <input type="checkbox" name="hadaT" value="Bike">
+            <input type="checkbox" name="hadaD" value="Car"><br>
           </li>
           <li>Fuego</li>
           <li>Tierra</li>
@@ -104,25 +103,47 @@
 
     <main id="page-3">
       <header>
+        <section class="menuLogo">
+          <img src="img/web-5.png" alt="">
+        </section>
+        <section class="menu">
+          <div class="linkMenu1">POKEMONS</div>
+          <div class="linkMenu2">POKEDEX</div>
+          <div class="linkMenu3">ATRAPALOS</div>
+          <div class="linkMenu4">CANDYS</div>
+        </section>
       </header>
-      <section class="sectionCandyPokemon"></section>
+      <section id="sectionNumberPokemon">
+          <input type="number" id="inputNumber" placeholder="Top">
+          <input type="button" id="buttonFastPokemon" class="style_button" value="Buscar">
+        </section>
+      <section class="section10Pokemon"></section>
+      <canvas id="myChart"></canvas>
+      </section>
     </main>
 
     <main id="page-4">
       <header>
+        <section class="menuLogo">
+          <img src="img/web-5.png" alt="">
+        </section>
+        <section class="menu">
+          <div class="linkMenu1">POKEMONS</div>
+          <div class="linkMenu2">POKEDEX</div>
+          <div class="linkMenu3">ATRAPALOS</div>
+          <div class="linkMenu4">CANDYS</div>
+        </section>
       </header>
       <section id="sectionNumberCandy">
         <input type="number" id="inputCandy" placeholder="Numero de caramelos...">
         <input type="button" id="buttonFindCandy" class="style_button" value="Buscar">
       </section>
-      <section id="sectionCandyPokemon">
-        <section class="section-cards-1"></section>
-        <section class="section-cards-2"></section>
-      </section>
+      <section class="sectionCandyPokemon"></section>
     </main>
 
   </div>
   <script type="module" src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </body>
 
 </html>

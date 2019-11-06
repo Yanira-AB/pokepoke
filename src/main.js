@@ -4,6 +4,7 @@ import { readPokemon, ordenarAZ, ordenarZA, ordenarNumber, searchPokemonByName, 
 var listPokemones = readPokemon(POKEMON);
 
 document.querySelector("#page-1").style.display = "none";
+document.querySelector("#page-2").style.display = "none";
 document.querySelector("#page-3").style.display = "none";
 document.querySelector("#page-4").style.display = "none";
 
@@ -13,13 +14,62 @@ document.querySelector(".img-section-1").addEventListener('click', (event) => {
     paintPokemones(listPokemones, ".sectionInitPokemon", listPokemones.length);
 });
 
-document.querySelector(".img-section-2").addEventListener('click', (event) => {
+document.querySelector("#link-start-1").addEventListener('click', (event) => {
+    document.querySelector("#page-0").style.display = "none";
+    document.querySelector("#page-1").style.display = "flex";
+    paintPokemones(listPokemones, ".sectionInitPokemon", listPokemones.length);
+});
+
+document.querySelector(".linkMenu1").addEventListener('click', (event) => {
+    console.log('hola');
+    document.querySelector("#page-0").style.display = "none";
+    document.querySelector("#page-2").style.display = "none";
+    document.querySelector("#page-3").style.display = "none";
+    document.querySelector("#page-4").style.display = "none";
+    document.querySelector("#page-1").style.display = "flex";
+    paintPokemones(listPokemones, ".sectionInitPokemon", listPokemones.length);
+});
+
+/*document.querySelector(".img-section-2").addEventListener('click', (event) => {
     document.querySelector("#page-0").style.display = "none";
     document.querySelector("#page-3").style.display = "flex";
     /*  const bichoType = document.querySelector("#bichoT");
   const bichoWeak = document.querySelector("#bichoD");
   console.log(bichoType.getAttribute("name"));
-  console.log(bichoWeak.value);*/
+  console.log(bichoWeak.value);
+});*/
+
+document.querySelector(".section-2").addEventListener('click', (event) => {
+    document.querySelector("#page-0").style.display = "none";
+    document.querySelector("#page-2").style.display = "flex";
+    const listPaintOfPokemon = appearsPokemons(listPokemones);
+});
+
+document.querySelector(".img-section-3").addEventListener('click', (event) => {
+    document.querySelector("#page-0").style.display = "none";
+    document.querySelector("#page-3").style.display = "flex";
+    const listPaintOfPokemon = appearsPokemons(listPokemones);
+    paintCanvas(listPaintOfPokemon);
+    paintPokemones(listPaintOfPokemon, ".section10Pokemon", 10);
+});
+
+document.querySelector("#link-start-3").addEventListener('click', (event) => {
+    document.querySelector("#page-0").style.display = "none";
+    document.querySelector("#page-3").style.display = "flex";
+    const listPaintOfPokemon = appearsPokemons(listPokemones);
+    paintCanvas(listPaintOfPokemon);
+    paintPokemones(listPaintOfPokemon, ".section10Pokemon", 10);
+});
+
+document.querySelector(".linkMenu3").addEventListener('click', (event) => {
+    document.querySelector("#page-0").style.display = "none";
+    document.querySelector("#page-1").style.display = "none";
+    document.querySelector("#page-2").style.display = "none";
+    document.querySelector("#page-4").style.display = "none";
+    document.querySelector("#page-3").style.display = "flex";
+    const listPaintOfPokemon = appearsPokemons(listPokemones);
+    paintCanvas(listPaintOfPokemon);
+    paintPokemones(listPaintOfPokemon, ".section10Pokemon", 10);
 });
 
 document.querySelector(".img-section-4").addEventListener('click', (event) => {
@@ -28,18 +78,63 @@ document.querySelector(".img-section-4").addEventListener('click', (event) => {
 
 });
 
-document.querySelector(".img-section-3").addEventListener('click', (event) => {
+document.querySelector("#link-start-4").addEventListener('click', (event) => {
     document.querySelector("#page-0").style.display = "none";
-    document.querySelector("#page-3").style.display = "flex";
-    const listPaintOfPokemon = appearsPokemons(listPokemones);
-    paintPokemones(listPaintOfPokemon, ".sectionCandyPokemon", 10);
-});
+    document.querySelector("#page-4").style.display = "flex";
+ });
+
+ document.querySelector(".linkMenu4").addEventListener('click', (event) => {
+    document.querySelector("#page-0").style.display = "none";
+    document.querySelector("#page-1").style.display = "none";
+    document.querySelector("#page-2").style.display = "none";
+    document.querySelector("#page-3").style.display = "none";
+    document.querySelector("#page-4").style.display = "flex";
+ });
 
 document.querySelector("#buttonTypeWeakness").addEventListener('click', (event) => {
     document.querySelector("#sectionFilterTypeWeakness").innerHTML = "";
     searchTypeWeakness()
     cleanCheckBox();
 });
+
+document.getElementById('buttonSearch').addEventListener('click', (event) => {
+    const name = document.getElementById('textSearch').value;
+    const listPaintOfPokemon = searchPokemonByName(listPokemones, name);
+    document.querySelector(".sectionInitPokemon").innerHTML = "";
+    paintPokemones(listPaintOfPokemon, ".sectionInitPokemon",listPaintOfPokemon.length);
+
+});
+
+document.getElementById('fieldOrdenar').addEventListener('change', (event) => {
+    event.preventDefault();
+    const ordenarValue = document.getElementById('fieldOrdenar').value;
+    let listPaintOfPokemon = "";
+    if (ordenarValue == 1)
+        listPaintOfPokemon = ordenarAZ(listPokemones);
+    else if (ordenarValue == 2)
+        listPaintOfPokemon = ordenarZA(listPokemones);
+    else
+        listPaintOfPokemon = ordenarNumber(listPokemones);
+    document.querySelector(".sectionInitPokemon").innerHTML = "";
+    paintPokemones(listPaintOfPokemon, ".sectionInitPokemon", listPaintOfPokemon.length);
+});
+
+document.querySelector("#buttonFindCandy").addEventListener('click', (event) => {
+    
+    const numberOfCandy = parseInt(document.querySelector("#inputCandy").value);
+    let listPaintOfPokemon = findPokemonByCandy(listPokemones, numberOfCandy);
+    paintPokemones(listPaintOfPokemon, ".sectionCandyPokemon", listPaintOfPokemon.length);
+});
+
+document.querySelector('#buttonFastPokemon').addEventListener('click', (event) => {
+    let number = parseInt(document.querySelector('#inputNumber').value);
+    console.log(number);
+    const listPaintOfPokemon = appearsPokemons(listPokemones);
+    document.querySelector(".section10Pokemon").innerHTML = "";
+    paintCanvas(listPaintOfPokemon);
+    paintPokemones(listPaintOfPokemon, ".section10Pokemon", number);
+});
+
 
 function cleanCheckBox() {
     let checkboxes = document.getElementsByTagName('input'); //obtenemos todos los controles del tipo Input
@@ -62,14 +157,27 @@ function searchTypeWeakness() {
                 weakness.push(name)
         }
     }
-    let listPaintOfPokemon = filterType(POKEMON, type);
-    console.log(type);
-    console.log(listPaintOfPokemon);
+
+    filterType(POKEMON, type);
+    //for (let index = 0; index < type.length; index++) {
+     //   let listPaintOfPokemon = filterType(POKEMON, type[index]); 
+        /*for (let index2 = 0; index2 < listPaintOfPokemon.length; index2++) {
+            const element = filterType(listPaintOfPokemon[index2], type[index]); 
+        } */
+     /*   const element = filterType(listPaintOfPokemon, type[index]);
+        console.log(element);
+    }*/
+    /*for (let index = 0; index < weakness.length; index++) {
+        let listPaintOfPokemon = filterWeak(POKEMON, weakness[index]);  
+        console.log(listPaintOfPokemon);
+    }*/
+    //let listPaintOfPokemon = filterType(POKEMON, type);
+    //console.log(type);
+    //console.log(weakness);
 }
 
 function paintPokemones(listPaintOfPokemon, sectionPaint, index) {
     const sectionCards1 = document.querySelector(sectionPaint);
-    const sectionCards2 = document.querySelector(".section-cards-2");
     for (let j = 0; j < index; j++) {
         let cardPokemon = document.createElement('article');
         cardPokemon.classList.add("style-card-pokemon");
@@ -83,7 +191,7 @@ function paintPokemones(listPaintOfPokemon, sectionPaint, index) {
         cardPokemon.id = listPaintOfPokemon[j].id;
         pokemonName.textContent = listPaintOfPokemon[j].name;
         pokemonImg.src = listPaintOfPokemon[j].img;
-        pokemonNum.textContent = listPaintOfPokemon[j].num;
+        pokemonNum.textContent = 'No. ' + listPaintOfPokemon[j].num;
 
         cardPokemon.appendChild(pokemonName);
         cardPokemon.appendChild(pokemonImg);
@@ -91,35 +199,38 @@ function paintPokemones(listPaintOfPokemon, sectionPaint, index) {
 
         sectionCards1.appendChild(cardPokemon);
     }
-
 }
 
-document.getElementById('buttonSearch').addEventListener('click', (event) => {
-    const name = document.getElementById('textSearch').value;
-    const listPaintOfPokemon = searchPokemonByName(listPokemones, name);
-    document.querySelector(".sectionInitPokemon").innerHTML = "";
-    paintPokemones(listPaintOfPokemon, ".sectionInitPokemon");
+function paintCanvas(listPaintOfPokemon) {
+    var ctx = document.getElementById('myChart').getContext('2d');
+    let pokemonName = [];
+    let pokemonSpawns = [];
+    for (let index = 0; index < 10; index++) {
+        pokemonName.push(listPaintOfPokemon[index].name);
+        pokemonSpawns.push(listPaintOfPokemon[index].spawns);
+    }
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'doughnut',
 
-});
+        // The data for our dataset
+        data: {
+            labels: pokemonName,
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: ['#C66E3E', '#8B4E93', '#D19433', '#1FA8FF', '#E84D2C', '#FF120D', '#F0BD1B', '#74B560', '#C49E4D', 'FFDC00'],
+                borderColor: ['#C66E3E', '#8B4E93', '#D19433', '#1FA8FF', '#E84D2C', '#FF120D', '#F0BD1B', '#74B560', '#C49E4D', 'FFDC00'],
+                data: pokemonSpawns,
 
-document.getElementById('fieldOrdenar').addEventListener('change', (event) => {
-    event.preventDefault();
-    const ordenarValue = document.getElementById('fieldOrdenar').value;
-    let listPaintOfPokemon = "";
-    if (ordenarValue == 1)
-        listPaintOfPokemon = ordenarAZ(listPokemones);
-    else if (ordenarValue == 2)
-        listPaintOfPokemon = ordenarZA(listPokemones);
-    else
-        listPaintOfPokemon = ordenarNumber(listPokemones);
-    document.querySelector(".sectionInitPokemon").innerHTML = "";
-    paintPokemones(listPaintOfPokemon, ".sectionInitPokemon", listPaintOfPokemon.length);
-});
+            }]
+        },
 
-document.querySelector("#buttonFindCandy").addEventListener('click', (event) => {
-    event.preventDefault();
-    const numberOfCandy = parseInt(document.querySelector("#inputCandy").value);
-    let listPaintOfPokemon = findPokemonByCandy(listPokemones, numberOfCandy);
-    console.log(listPaintOfPokemon);
-
-});
+        // Configuration options go here
+        options: {
+            legend: {
+                position: 'right',
+                align: 'center',
+            }
+        }
+    });
+}

@@ -30,22 +30,22 @@ section img{
     font-weight: normal;      
 }
 
-.section-1 a{
+.section-1 div{
     color:  #FFF152;
     text-shadow: -2px -2px 1px #46A9AF, 2px 2px 1px #46A9AF, -2px 2px 1px #46A9AF, 2px -2px 1px #46A9AF;
 }
 
-.section-2 a{
+.section-2 div{
     color: #91C1C4;
     text-shadow: -2px -2px 1px #E85650, 2px 2px 1px #E85650, -2px 2px 1px #E85650, 2px -2px 1px #E85650;
 }
 
-.section-3 a{
+.section-3 div{
     color: #E96560;
     text-shadow: -2px -2px 1px #7DC9AB, 2px 2px 1px #7DC9AB, -2px 2px 1px #7DC9AB, 2px -2px 1px #7DC9AB;
 }
 
-.section-4 a{
+.section-4 div{
     color: #7DC9AB;
     text-shadow: -2px -2px 1px #FEEF49, 2px 2px 1px #FEEF49, -2px 2px 1px #FEEF49, 2px -2px 1px #FEEF49;
 }
@@ -105,127 +105,171 @@ section img{
     color:#46A9AF;
 }
 
-#page-1, #page-4{
-    margin: 10px;
-    height: 90vh;
+#page-1, #page-4, #page-3, #page-4 {
+    margin: 5px;
     display: flex;
     flex-direction: column;
-    align-content: center;
+    background-image: url('img/background.jpg');
 }
 
+
 header{
+    margin : 8px;
     height: 30%;
     width: 100%;
     display: flex;
-    align-content: space-between;    
+    justify-content: space-between;    
     align-items: center;
 }
 
-#page1Logo{
-    width: 15%;
+.menuLogo{
+    width: 18%;
     height: 100%;
 }
 
-#page1Logo img{
+.menuLogo img{
     width: 100%;
     height: 100%;
 }
 
-#page1Menu{
+.menu{
     display: flex;
     flex: 1 1 80%;
     margin: 20px;
-    align-content: space-between;    
+    justify-content: space-between;    
 }
 
-#page1Menu a{  
+.menu div{  
     padding: 15px;  
     width: 20%;  
-    margin: 0 10px;
     text-decoration: none;
     text-align: center;
-    align-content: space-between;
-}
+    font-size: 23px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+    box-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 1px 3px rgba(0,0,0,.2);
+    -webkit-border-radius: 10px;
+  }
 
-#linkMenu1{
+.linkMenu1{
+    border: 1px solid #2079b0;
     color:  #FFF152;
-    background-color: #46A9AF;
-    -webkit-border-radius: 10px;
-    font-size: 20px;
+    background-color: rgb(28, 160, 167);
 }
 
-#linkMenu2{
-    color:  #91C1C4;
+.linkMenu1:hover{
+    background: #2079b0;
+  background-image: -webkit-linear-gradient(top, #2079b0, rgb(145, 232, 236));
+  background-image: -moz-linear-gradient(top, #2079b0, rgb(145, 232, 236));
+  background-image: -ms-linear-gradient(top, #2079b0, rgb(145, 232, 236));
+  background-image: -o-linear-gradient(top, #2079b0, rgb(145, 232, 236));
+  background-image: linear-gradient(to bottom, #2079b0, rgb(145, 232, 236));
+  text-decoration: none;
+}
+
+.linkMenu2{
+    border: 1px solid #E85650;
+    color:  rgb(28, 160, 167);
     background-color: #E85650;
-    -webkit-border-radius: 10px;
-    font-size: 20px;
 }
 
-#linkMenu3{
+.linkMenu2:hover{
+    background:rgb(243, 149, 146);
+  background-image: -webkit-linear-gradient(top, #E85650, rgb(243, 149, 146));
+  background-image: -moz-linear-gradient(top, #E85650, rgb(243, 149, 146));
+  background-image: -ms-linear-gradient(top, #E85650, rgb(243, 149, 146));
+  background-image: -o-linear-gradient(top, #E85650, rgb(243, 149, 146));
+  background-image: linear-gradient(to bottom, #E85650, rgb(243, 149, 146));
+}
+
+.linkMenu3{
+    border: 1px solid #7DC9AB;
     color:  #E96560;;
     background-color: #7DC9AB;
-    -webkit-border-radius: 10px;
-    font-size: 20px;
 }
 
-#linkMenu4{
+.linkMenu3:hover{
+    background:rgb(190, 241, 221);
+    background-image: -webkit-linear-gradient(top, page#7DC9AB, rgb(190, 241, 221));
+    background-image: -moz-linear-gradient(top, #7DC9AB, rgb(190, 241, 221));
+    background-image: -ms-linear-gradient(top, #7DC9AB, rgb(190, 241, 221));
+    background-image: -o-linear-gradient(top, #7DC9AB, rgb(190, 241, 221));
+    background-image: linear-gradient(to bottom, #7DC9AB, rgb(190, 241, 221));
+}
+
+.linkMenu4{
+    border: 1px solid #FEEF49;
     color:  #7DC9AB;
     background-color: #FEEF49;
-    -webkit-border-radius: 10px;
-    font-size: 20px;
+}
+
+.linkMenu4:hover{
+    background:rgb(190, 241, 221);
+    background-image: -webkit-linear-gradient(top, #FEEF49, rgb(252, 242, 141));
+    background-image: -moz-linear-gradient(top, #FEEF49, rgb(252, 242, 141));
+    background-image: -ms-linear-gradient(top, #FEEF49, rgb(252, 242, 141));
+    background-image: -o-linear-gradient(top, #FEEF49, rgb(252, 242, 141));
+    background-image: linear-gradient(to bottom, #FEEF49, rgb(252, 242, 141));  
 }
 
 #sectionOrderFilter, #sectionNumberCandy{
     display: flex;
-    align-content: space-between;
+    justify-content: space-between;
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    height: 5%;
+    margin: 10px 10px;
+}
+
+#sectionNumberPokemon{
+    margin:10px;
 }
 
 #fieldOrdenar{
     width: 20%;
-   
 }
 
-#fieldFiltrar{
-    width: 50%;
-    
+#fieldFind{
+    display: flex;
+    width: 22%;
+    justify-content: space-between;
 }
 
-.sectionInitPokemon, .section-cards-2{
+.sectionInitPokemon, .sectionCandyPokemon, .section10Pokemon{
     display: flex;
     align-content: space-between;
     flex-wrap: wrap;
     margin: 10px 0;
     width: 100%;
-    height: 100%;
 }
 
 .style-card-pokemon {
     border:1px solid black; 
     margin: 10px;
     -webkit-border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.89);
     display: flex;
     flex: 1 1 15%;
     flex-direction: column;
     align-content: center;
     align-items: center;
+    background: linear-gradient(180deg, #FFFFFF 0%, #DFDFDF 99.99%, rgba(255, 255, 255, 0) 100%);
+    border: 2px solid #E9E9E9;
 }
+
+.style-card-pokemon:hover .style-card-img {-webkit-transform:scale(1.3);transform:scale(1.3);}
 
 h3{
 margin: 10px;
 }
 
-article img{
-    width: 50%;
-    height: 50%;
+.style-card-img{
+    width: 60%;
+    height: 60%;
 }
 
-p{
-    margin: 5px;
+h4{
+    margin:10px;
+    padding: 5px;
 }
-
 
 @media screen and (max-width:1080px){
     section a{
@@ -234,7 +278,7 @@ p{
 }
 
 @media screen and (max-width:950px){
-    section a{
+    section div{
         font-size: 25px;
     }
     .logo img{
@@ -268,7 +312,7 @@ p{
         flex-direction: row;
     }
     
-    section a{
+    section div{
         position: absolute;
         top: 20%;
         width: 50%;
@@ -287,22 +331,22 @@ p{
     height: 20%;
     }
 
-    .section-1 a{
+    .section-1 div{
         color:  #F3C82E;
     }
 
-    .section-2 a{
+    .section-2 div{
         color: #84EBEA;
     }
 
-    .section-3 a{
+    .section-3 div{
         color: #E3751C;
    }
 
 }
 
 @media screen and (max-width:600px){
-    section a{
+    section div{
         font-size: 35px;
         text-align: center;
         top: 30%;
