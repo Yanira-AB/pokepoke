@@ -1,5 +1,14 @@
 export const readPokemon = (data) => {
-  return data.map(pokemon => ({ id: pokemon.id, num: pokemon.num, name: pokemon.name, img: pokemon.img, candy: pokemon.candy, candy_num: pokemon.candy_count, spawns: pokemon.spawn_chance, time: pokemon.spawn_time }))
+  return data.map((pokemon) => ({
+    id: pokemon.id,
+    num: pokemon.num,
+    name: pokemon.name,
+    img: pokemon.img,
+    candy: pokemon.candy,
+    candy_num: pokemon.candy_count,
+    spawns: pokemon.spawn_chance,
+    time: pokemon.spawn_time,
+  }));
 };
 
 export const ordenarAZ = (data) => {
@@ -38,9 +47,31 @@ export const filterType = (data, array) => {
     for (let index2 = 0; index2 < array.length; index2++) {
       if (data[index].type.length > 0) {
         let element = data[index].type;
-        let resultFilter = element.filter((element => {if (element == array[index2]) {
-          pokePlease =+ 1;
-        }}));
+        let resultFilter = element.filter((element => {
+          if (element === array[index2]) {
+            pokemons.push(data[index]);
+          }
+        }));
+      }
+    }
+  }
+  console.log(pokemons);
+  return pokemons;
+}
+
+/*export const filterType = (data, array) => {
+  //debugger
+  let pokePlease = 0;
+  let pokemons = [];
+  for (let index = 0; index < data.length; index++) {
+    for (let index2 = 0; index2 < array.length; index2++) {
+      if (data[index].type.length > 0) {
+        let element = data[index].type;
+        let resultFilter = element.filter((element => {
+          if (element == array[index2]) {
+            pokePlease = + 1;
+          }
+        }));
         if (pokePlease == array.length) {
           pokemons.push(data[index]);
         }
@@ -49,7 +80,7 @@ export const filterType = (data, array) => {
   }
   console.log(pokemons);
   return pokemons;
-}
+}*/
 
 /*export const filterType = (data, condition) => {
   //const pokes = data.filter(data => (data.type == 'Bug'));

@@ -165,10 +165,22 @@ document.querySelector(".linkMenu1").addEventListener('click', (event) => {
   console.log(bichoWeak.value);
 });*/
 
-document.querySelector(".section-2").addEventListener('click', (event) => {
+document.querySelector(".img-section-2").addEventListener('click', (event) => {
     document.querySelector("#page-0").style.display = "none";
     document.querySelector("#page-2").style.display = "flex";
-    const listPaintOfPokemon = appearsPokemons(listPokemones);
+});
+
+document.querySelector("#link-start-2").addEventListener('click', (event) => {
+  document.querySelector("#page-0").style.display = "none";
+  document.querySelector("#page-2").style.display = "flex";
+});
+
+document.querySelector(".linkMenu2").addEventListener('click', (event) => {
+  document.querySelector("#page-0").style.display = "none";
+  document.querySelector("#page-1").style.display = "none";
+  document.querySelector("#page-2").style.display = "flex";
+  document.querySelector("#page-4").style.display = "none";
+  document.querySelector("#page-3").style.display = "none";
 });
 
 document.querySelector(".img-section-3").addEventListener('click', (event) => {
