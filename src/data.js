@@ -41,6 +41,61 @@ export const appearsPokemons = (data) => {
 
 export const filterType = (data, array) => {
   //debugger
+  let count = 0;
+  let pokemons = [];
+  for (let index = 0; index < data.length; index++) {
+    for (let index2 = 0; index2 < array.length; index2++) {
+      if (data[index].type.length > 0) {
+        let element = data[index].type;
+        let resultFilter = element.filter((element => {
+          if (element === array[index2]) {
+            count = count + 1;
+          }
+          if (data[index].type[data[index].type.length - 1] === element && count === array.length) {
+            pokemons.push(data[index]);
+            count = 0;
+          }
+          if (data[index].type[data[index].type.length - 1] === element && array[array.length-1] === array[index2]) {
+            count = 0;
+          }
+        }));
+      }
+    }
+  }
+  //console.log(pokemons);
+  return pokemons;
+}
+
+export const filterWeak = (data, array) => {
+  //debugger
+  let count = 0;
+  let pokemons = [];
+  for (let index = 0; index < data.length; index++) {
+    for (let index2 = 0; index2 < array.length; index2++) {
+      if (data[index].weaknesses.length > 0) {
+        let element = data[index].weaknesses;
+        let resultFilter = element.filter((element => {
+          if (element === array[index2]) {
+            count = count + 1;
+          }
+          if (data[index].weaknesses[data[index].weaknesses.length - 1] === element && count === array.length) {
+            pokemons.push(data[index]);
+            count = 0;
+          }
+          if (data[index].weaknesses[data[index].weaknesses.length - 1] === element && array[array.length-1] === array[index2]) {
+            count = 0;
+          }
+        }));
+      }
+    }
+  }
+  //console.log(pokemons);
+  return pokemons;
+}
+
+/*export const filterType = (data, array) => {
+  //debugger
+  let lala = [];
   let pokePlease = 0;
   let pokemons = [];
   for (let index = 0; index < data.length; index++) {
@@ -50,14 +105,22 @@ export const filterType = (data, array) => {
         let resultFilter = element.filter((element => {
           if (element === array[index2]) {
             pokemons.push(data[index]);
+            for (let index3 = 0; index3 < pokemons.length; index3++) {
+              const element2 = pokemons[index3].type;
+              let secondFilter = element2.filter((element2 => {
+                if (element2 === 'Bug') {
+                  lala.push(pokemons[index3]);
+                }
+              }));
+            }
           }
         }));
       }
     }
   }
-  console.log(pokemons);
+  console.log(lala);
   return pokemons;
-}
+}*/
 
 /*export const filterType = (data, array) => {
   //debugger

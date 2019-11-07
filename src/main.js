@@ -125,7 +125,7 @@ const lala = [{
   }];
 
 import POKEMON from './data/pokemon/pokemon.js'
-import { readPokemon, ordenarAZ, ordenarZA, ordenarNumber, searchPokemonByName, findPokemonByCandy, appearsPokemons, filterType } from './data.js';
+import { readPokemon, ordenarAZ, ordenarZA, ordenarNumber, searchPokemonByName, findPokemonByCandy, appearsPokemons, filterType, filterWeak } from './data.js';
 
 var listPokemones = readPokemon(POKEMON);
 
@@ -196,7 +196,7 @@ document.querySelector("#link-start-3").addEventListener('click', (event) => {
     document.querySelector("#page-3").style.display = "flex";
     const listPaintOfPokemon = appearsPokemons(listPokemones);
     paintCanvas(listPaintOfPokemon);
-    paintPokemones(listPaintOfPokemon, ".section10Pokemon", 10);
+    paintPokemones(listPaintOfPokemon, ".section10Pokemon", listPaintOfPokemon.length);
 });
 
 document.querySelector(".linkMenu3").addEventListener('click', (event) => {
@@ -232,7 +232,7 @@ document.querySelector("#link-start-4").addEventListener('click', (event) => {
 document.querySelector("#buttonTypeWeakness").addEventListener('click', (event) => {
     document.querySelector("#sectionFilterTypeWeakness").innerHTML = "";
     searchTypeWeakness()
-    cleanCheckBox();
+    //cleanCheckBox();
 });
 
 document.getElementById('buttonSearch').addEventListener('click', (event) => {
@@ -295,23 +295,21 @@ function searchTypeWeakness() {
                 weakness.push(name)
         }
     }
-
-    filterType(lala, type);
-    //for (let index = 0; index < type.length; index++) {
-     //   let listPaintOfPokemon = filterType(POKEMON, type[index]); 
-        /*for (let index2 = 0; index2 < listPaintOfPokemon.length; index2++) {
-            const element = filterType(listPaintOfPokemon[index2], type[index]); 
-        } */
-     /*   const element = filterType(listPaintOfPokemon, type[index]);
-        console.log(element);
-    }*/
-    /*for (let index = 0; index < weakness.length; index++) {
-        let listPaintOfPokemon = filterWeak(POKEMON, weakness[index]);  
-        console.log(listPaintOfPokemon);
-    }*/
-    //let listPaintOfPokemon = filterType(POKEMON, type);
-    //console.log(type);
-    //console.log(weakness);
+    let listPaintOfPokemon;
+    if (type.length === 0) {
+      listPaintOfPokemon = filterWeak(POKEMON, weakness);
+      paintPokemones(listPaintOfPokemon, "#sectionFilterTypeWeakness", listPaintOfPokemon.length);
+    } else if (weakness.length === 0) {
+      listPaintOfPokemon = filterType(POKEMON, type);
+      paintPokemones(listPaintOfPokemon, "#sectionFilterTypeWeakness", listPaintOfPokemon.length);
+    } else if (type.length > 0 && weakness.length > 0) {
+      listPaintOfPokemon = filterWeak(filterType(lala, type), weakness);
+      paintPokemones(listPaintOfPokemon, "#sectionFilterTypeWeakness", listPaintOfPokemon.length);
+    } else {
+      alert('Escoge seleccionar algún tipo o debilidad');
+    }
+    
+    console.log(listPaintOfPokemon);
 }
 
 function paintPokemones(listPaintOfPokemon, sectionPaint, index) {
